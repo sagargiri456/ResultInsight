@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")  // This reads the connection string from .env file
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model subjects {
+  id       Int     @id @default(autoincrement())
+  subject  String
+  average  Float
+}
+model results{
+  id  Int @id @default(autoincrement())
+  range String
+  count String
+}
+
+model students{
+    id Int @id
+    enroll_no String
+    ad402_theory Float
+    ad403_theory Float
+    ad404_theory Float
+    ad405_theory Float
+    bt401_theory Float
+    ad402_practical Float
+    ad403_practical Float
+    ad404_practical Float
+    ad405_practical Float
+    ad406_practical Float
+    scores Float
+    name String
+    score_range String
+    date_of_upload DateTime @default(now())
+
+  
+}
