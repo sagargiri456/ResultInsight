@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import prisma  from "@/lib/db";
 
+export const dynamic = "force-dynamic"; // Ensure the API is always dynamically executed
+
 export async function GET() {
   try {
     const marksheets = await prisma.marksheet.findMany();
