@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma  from "@/lib/db";
 
 export const dynamic = "force-dynamic"; // Ensure the API is always dynamically executed
+export const runtime = "nodejs";
 
 export async function GET() {
   try {
