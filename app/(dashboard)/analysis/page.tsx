@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import SubjectPerformance from '@/components/subject-performance';
 import StudentDistribution  from "@/components/student-distribution"
-import prisma from "@/app/lib/db"
+import prisma from "@/lib/db"
 
 export default async function AnalysisPage() {
   const average_score_per_subject = await prisma.subjects.findMany();

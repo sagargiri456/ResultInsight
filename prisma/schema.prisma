@@ -26,7 +26,7 @@ model results{
 }
 
 model students{
-    id Int @id
+    id Int @id @default(autoincrement())
     enroll_no String
     ad402_theory Float
     ad403_theory Float
@@ -44,4 +44,25 @@ model students{
     date_of_upload DateTime @default(now())
 
   
+}
+model Teacher {
+  id        String  @id @default(uuid())  
+  name      String  
+  email     String  @unique
+  branch    String?
+  section   String?
+}
+model SuperAdmin {
+  id       String  @id @default(uuid())  
+  email    String  @unique
+  password String
+}
+model Branch {
+  id     String  @id @default(uuid())  
+  name   String  @unique
+}
+model Marksheet {
+  id        String  @id @default(uuid()) // Unique identifier
+  url       String  @unique // Store the uploaded PDF URL
+  createdAt DateTime @default(now()) // Timestamp for when it was uploaded
 }

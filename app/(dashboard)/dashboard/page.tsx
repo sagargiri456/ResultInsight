@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Overview } from "@/components/overview"
 import { RecentUploads } from "@/components/recent-uploads"
-import prisma from "@/app/lib/db"
+import prisma from "@/lib/db"
 
 export default async function Home() {
   const Array_of_object_of_names = await prisma.students.findMany({
@@ -47,12 +47,12 @@ export default async function Home() {
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Average Score</CardTitle>
           </CardHeader>
-          <CardContent>
+          {/* <CardContent>
             <div className="text-2xl font-bold">{parseFloat(Mean_score.scores.toFixed(2))}%</div>
             <p className="text-xs text-muted-foreground">
               Overall performance
             </p>
-          </CardContent>
+          </CardContent> */}
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

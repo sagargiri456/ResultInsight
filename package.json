@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.12",
     "@hookform/resolvers": "^3.9.0",
     "@next/swc-wasm-nodejs": "13.5.1",
     "@prisma/client": "^6.0.1",
@@ -42,7 +43,7 @@
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
-    "@uploadthing/react": "^6.4.0",
+    "@uploadthing/react": "^6.8.0",
     "autoprefixer": "10.4.15",
     "blob-polyfill": "^9.0.20240710",
     "class-variance-authority": "^0.7.0",
@@ -71,7 +72,7 @@
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2",
-    "uploadthing": "^6.7.0",
+    "uploadthing": "^6.13.3",
     "vaul": "^0.9.0",
     "zod": "^3.23.8"
   },
