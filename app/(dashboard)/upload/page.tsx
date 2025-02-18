@@ -26,7 +26,7 @@ export default function UploadPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <FileAnalyze/>
+           <FileAnalyze/> 
         </CardContent>
       </Card>
     </div>

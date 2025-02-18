@@ -1,12 +1,13 @@
-"use client";
+"use client"
 
 import { useState } from "react";
 import { UploadButton } from "@/utils/uploadthing";
-import type { OurFileRouter } from "@/app/api/uploadthing/core";
+// import type { OurFileRouter } from "@/app/api/uploadthing/core";
 import { Progress } from "@/components/ui/progress";
+import ProgressBar from "@/components/progressBar"
 
 export function FileUploaderNew() {
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -26,9 +27,10 @@ export function FileUploaderNew() {
         }}
       />
 
-      {uploadProgress > 0 && (
+      {uploadProgress > 0 && uploadProgress <= 100 && (
         <div className="mt-2">
-          <Progress value={uploadProgress} />
+          {/* <Progress value={uploadProgress} /> */}
+          <ProgressBar progress={uploadProgress}/>
           <p className="text-sm text-muted-foreground text-center">
             Uploading... {uploadProgress}%
           </p>
@@ -55,6 +57,7 @@ export function FileUploaderNew() {
           <p>{errorMessage}</p>
         </div>
       )}
+      
     </div>
   );
 }
