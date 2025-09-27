@@ -37,7 +37,7 @@ export default async function Home() {
             <CardTitle className="text-sm font-medium">Total Students</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{Array_of_object_of_names.length - 1}</div>
+            <div className="text-2xl font-bold">{Math.max(0, Array_of_object_of_names.length - 1)}</div>
             <p className="text-xs text-muted-foreground">
               Across all uploaded marksheets
             </p>
@@ -47,19 +47,21 @@ export default async function Home() {
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Average Score</CardTitle>
           </CardHeader>
-          {/* <CardContent>
-            <div className="text-2xl font-bold">{parseFloat(Mean_score.scores.toFixed(2))}%</div>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {Mean_score ? `${parseFloat(Mean_score.scores.toFixed(2))}%` : '0%'}
+            </div>
             <p className="text-xs text-muted-foreground">
               Overall performance
             </p>
-          </CardContent> */}
+          </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Subjects</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{Total_number_of_subjects.length - 1}</div>
+            <div className="text-2xl font-bold">{Math.max(0, Total_number_of_subjects.length - 1)}</div>
             <p className="text-xs text-muted-foreground">
               Unique subjects tracked
             </p>
@@ -70,7 +72,7 @@ export default async function Home() {
             <CardTitle className="text-sm font-medium">Marksheets</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{Array_of_object_of_names.length - 1}</div>
+            <div className="text-2xl font-bold">{Math.max(0, Array_of_object_of_names.length - 1)}</div>
             <p className="text-xs text-muted-foreground">
               Total uploads
             </p>

@@ -1,7 +1,6 @@
 "use client"
 
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts"
-import { CORE_SUBJECTS } from "@/lib/constants/subjects"
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts"
 import { CHART_COLORS } from "@/lib/utils/chart"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -35,13 +34,24 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps) => {
 }
 
 export function PerformanceChart({ data }: { data: any[] }) {
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-[350px]">
+        <div className="text-muted-foreground">No data available</div>
+      </div>
+    )
+  }
+
   return (
     <ResponsiveContainer width="100%" height={350}>
-      <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <XAxis
-          dataKey="year"
+          dataKey="subject"
           stroke="hsl(var(--muted-foreground))"
-          fontSize={12}
+          fontSize={10}
+          angle={-45}
+          textAnchor="end"
+          height={80}
         />
         <YAxis
           stroke="hsl(var(--muted-foreground))"
@@ -49,30 +59,13 @@ export function PerformanceChart({ data }: { data: any[] }) {
           tickFormatter={(value) => `${value}%`}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Legend />
-        {CORE_SUBJECTS.map((subject) => (
-          <Line
-            key={subject}
-            type="monotone"
-            dataKey={subject}
-            name={subject}
-            stroke={CHART_COLORS[subject]}
-            strokeWidth={2}
-            dot={{
-              stroke: CHART_COLORS[subject],
-              strokeWidth: 2,
-              r: 4,
-              fill: "hsl(var(--background))"
-            }}
-            activeDot={{
-              stroke: CHART_COLORS[subject],
-              strokeWidth: 2,
-              r: 6,
-              fill: "hsl(var(--background))"
-            }}
-          />
-        ))}
-      </LineChart>
+        <Bar
+          dataKey="average"
+          name="Average Score"
+          fill="hsl(var(--chart-1))"
+          radius={[4, 4, 0, 0]}
+        />
+      </BarChart>
     </ResponsiveContainer>
   )
 }

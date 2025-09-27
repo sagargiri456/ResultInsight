@@ -15,9 +15,14 @@ export function formatPerformanceData(data: SubjectPerformance[]): YearlyPerform
 }
 
 export const CHART_COLORS = {
-  Mathematics: "hsl(var(--chart-1))",
-  Science: "hsl(var(--chart-2))",
-  English: "hsl(var(--chart-3))",
-  History: "hsl(var(--chart-4))",
-  Geography: "hsl(var(--chart-5))"
+  "AD402- [T]": "hsl(var(--chart-1))",
+  "AD403- [T]": "hsl(var(--chart-2))",
+  "AD404- [T]": "hsl(var(--chart-3))",
+  "AD405- [T]": "hsl(var(--chart-4))",
+  "BT401- [T]": "hsl(var(--chart-5))",
+  "AD402- [P]": "hsl(var(--chart-1))",
+  "AD403- [P]": "hsl(var(--chart-2))",
+  "AD404- [P]": "hsl(var(--chart-3))",
+  "AD405- [P]": "hsl(var(--chart-4))",
+  "AD406- [P]": "hsl(var(--chart-5))"
 } as const

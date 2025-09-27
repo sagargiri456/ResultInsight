@@ -34,6 +34,14 @@ type SubjectPerformanceProps = {
 
 const SubjectPerformance: React.FC<SubjectPerformanceProps> = ({ data }) => {
 // export function SubjectPerformance(data:{data:string}) {
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-[350px]">
+        <div className="text-muted-foreground">No subject data available. Run analysis to see results.</div>
+      </div>
+    )
+  }
+
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 25 }}>

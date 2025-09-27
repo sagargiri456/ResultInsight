@@ -11,7 +11,13 @@ type StudentDistributionProps = {
   }[]
 }
 const StudentDistribution:React.FC<StudentDistributionProps> = ({data})=>{
-
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-[350px]">
+        <div className="text-muted-foreground">No distribution data available. Run analysis to see results.</div>
+      </div>
+    )
+  }
 
   return (
     <ResponsiveContainer width="100%" height={350}>

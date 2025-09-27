@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import SubjectPerformance from '@/components/subject-performance';
 import StudentDistribution  from "@/components/student-distribution"
+import { AnalysisControls } from "@/components/analysis-controls"
 import prisma from "@/lib/db"
 
 export default async function AnalysisPage() {
@@ -8,6 +9,8 @@ export default async function AnalysisPage() {
   const student_distribution_data = await prisma.results.findMany();
   return (
     <div className="space-y-8">
+      <AnalysisControls />
+      
       <Card>
         <CardHeader>
           <CardTitle>Subject Performance Analysis</CardTitle>
